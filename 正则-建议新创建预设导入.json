@@ -1,0 +1,172 @@
+[
+ {
+  "id": "a11a1a11-1111-4111-9111-111111111101",
+  "scriptName": "① 面板 · 状态 正面效果（第1步）",
+  "findRegex": "/^状态[:：]\\s*([^|｜\\n]+?)\\s*[|｜]\\s*正\\s*[|｜]\\s*([^\\n<]+)$/gim",
+  "replaceString": "<span class=\"ifs-chip\" style=\"background:linear-gradient(135deg,rgba(70,190,255,.15),rgba(10,30,52,.5));border:1px solid rgba(127,216,255,.5);border-left:3px solid #7fd8ff;color:#eef9ff;box-shadow:inset 0 0 14px rgba(70,190,255,.15),0 2px 8px rgba(6,20,38,.5)\">\n<span class=\"ifs-owner\" style=\"background:rgba(10,34,56,.75);border:1px solid rgba(150,220,255,.3);color:#bfe9ff\">$1</span>\n<span style=\"color:#7fd8ff;font-weight:700\">✧</span>$2</span>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "a11a1a11-1111-4111-9111-111111111102",
+  "scriptName": "① 面板 · 状态 负面效果（第2步）",
+  "findRegex": "/^状态[:：]\\s*([^|｜\\n]+?)\\s*[|｜]\\s*负\\s*[|｜]\\s*([^\\n<]+)$/gim",
+  "replaceString": "<span class=\"ifs-chip\" style=\"background:linear-gradient(135deg,rgba(150,95,255,.16),rgba(10,30,52,.5));border:1px solid rgba(201,163,255,.5);border-left:3px solid #c9a3ff;color:#eef9ff;box-shadow:inset 0 0 14px rgba(150,95,255,.16),0 2px 8px rgba(6,20,38,.5)\">\n<span class=\"ifs-owner\" style=\"background:rgba(10,34,56,.75);border:1px solid rgba(150,220,255,.3);color:#bfe9ff\">$1</span>\n<span style=\"color:#c9a3ff;font-weight:700\">✕</span>$2</span>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "b22b2b22-2222-4222-9222-222222222203",
+  "scriptName": "① 面板 · 勇气值条（第3步）",
+  "findRegex": "/^勇气值[:：]\\s*(\\d+)\\s*[/／]\\s*(\\d+)\\s*[（(]\\s*(\\d+)\\s*%[)）]\\s*$/gim",
+  "replaceString": "<div style=\"margin:11px 0 5px;display:flex;align-items:baseline;justify-content:space-between\">\n<span style=\"color:#9fd8f5;font-size:12px;letter-spacing:2px\">勇气值 <b style=\"color:#ffffff;font-size:17px;text-shadow:0 0 12px rgba(159,232,255,.95)\">$1</b><span style=\"color:#6fa3c8;font-size:11px\"> / $2</span></span>\n<span style=\"color:#cdf2ff;font-size:11px;letter-spacing:1px\">$3%</span></div>\n<div class=\"ifs-bar\"><div class=\"ifs-bar-fill\" style=\"width:$3%\"><span class=\"ifs-knob\"></span></div></div>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "c33c3c33-3333-4333-9333-333333333304",
+  "scriptName": "① 面板 · 场地行（第4步）",
+  "findRegex": "/^场地[:：]\\s*([^\\n<]+)$/gim",
+  "replaceString": "<div style=\"margin-top:11px;padding:8px 12px;border-radius:9px;border:1px dashed rgba(150,220,255,.4);background:linear-gradient(100deg,rgba(14,44,71,.55),rgba(8,26,44,.55));display:flex;align-items:center;gap:9px\">\n<span style=\"color:#7fd8ff;font-size:13px\">⌖</span><span style=\"color:#e2f6ff;font-size:13px;letter-spacing:.5px\">$1</span></div>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "d44d4d44-4444-4444-9444-444444444405",
+  "scriptName": "① 面板 · 外框（第5步·最后套框）",
+  "findRegex": "/<冰勇状态>\\s*([\\s\\S]*?)\\s*<\\/冰勇状态>/gi",
+  "replaceString": "<style>\n@keyframes ifs-sweep{0%{transform:translateX(-120%)}55%{transform:translateX(340%)}100%{transform:translateX(340%)}}\n@keyframes ifs-pulse{0%,100%{box-shadow:0 0 9px rgba(159,232,255,.7),0 0 20px rgba(90,190,255,.32)}50%{box-shadow:0 0 15px rgba(234,250,255,.95),0 0 32px rgba(120,215,255,.55)}}\n@keyframes ifs-float{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-4px);opacity:.9}}\n.ifs-wrap{position:relative;overflow:hidden}\n.ifs-wrap::after{content:'';position:absolute;top:0;left:0;width:36%;height:100%;pointer-events:none;\n  background:linear-gradient(105deg,transparent,rgba(190,238,255,.09),rgba(234,250,255,.20),rgba(190,238,255,.09),transparent);\n  animation:ifs-sweep 5.5s ease-in-out infinite}\n.ifs-bar{position:relative;height:13px;border-radius:99px;overflow:hidden;\n  background:linear-gradient(180deg,#061726,#0e2c47);border:1px solid rgba(150,220,255,.3);box-shadow:inset 0 2px 6px rgba(0,0,0,.72)}\n.ifs-bar-fill{position:relative;display:flex;align-items:center;justify-content:flex-end;height:100%;border-radius:99px;\n  background:linear-gradient(90deg,#2b6ea8,#63c6f5,#9fe8ff,#eafaff);animation:ifs-pulse 2.8s ease-in-out infinite}\n.ifs-knob{width:6px;height:14px;border-radius:3px;background:#fff;margin-right:-1px;position:relative;z-index:2;box-shadow:0 0 10px #eafaff,0 0 22px rgba(159,232,255,.95)}\n.ifs-chip{display:inline-flex;align-items:center;gap:7px;margin:3px 6px 3px 0;padding:4px 11px;border-radius:8px;font-size:12px;letter-spacing:.3px}\n.ifs-owner{font-size:10px;padding:1px 6px;border-radius:5px;letter-spacing:.5px}\n.ifs-flake{position:absolute;color:rgba(190,238,255,.45);font-size:12px;pointer-events:none;animation:ifs-float 4s ease-in-out infinite}\n</style><div class=\"ifs-wrap\" style=\"width:97%;margin:12px auto;font-family:'Noto Serif SC','Microsoft YaHei',serif\">\n<div style=\"position:relative;border-radius:16px;padding:15px 17px 16px;\n background:radial-gradient(120% 95% at 18% -12%,rgba(110,205,255,.22),transparent 62%),linear-gradient(158deg,#05141f 0%,#0b2c47 48%,#061a2b 100%);\n border:1px solid rgba(160,225,255,.45);\n box-shadow:0 10px 38px rgba(3,16,30,.78),0 0 0 1px rgba(70,140,200,.35),inset 0 0 62px rgba(95,190,255,.13),inset 0 1px 0 rgba(210,245,255,.3)\">\n<div style=\"position:absolute;top:-1px;left:-1px;width:22px;height:22px;border-top:2px solid #9fe8ff;border-left:2px solid #9fe8ff;border-radius:16px 0 0 0\"></div>\n<div style=\"position:absolute;bottom:-1px;right:-1px;width:22px;height:22px;border-bottom:2px solid #9fe8ff;border-right:2px solid #9fe8ff;border-radius:0 0 16px 0\"></div>\n<span class=\"ifs-flake\" style=\"top:9px;right:16px\">❄</span><span class=\"ifs-flake\" style=\"bottom:7px;left:46px;animation-delay:1.2s\">❆</span>\n<div style=\"display:flex;align-items:baseline;justify-content:space-between;padding-bottom:9px;border-bottom:1px solid rgba(150,220,255,.24)\">\n<span style=\"font-size:17px;letter-spacing:5px;font-weight:700;background:linear-gradient(90deg,#ffffff,#9fe8ff 50%,#4fb0e8);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 22px rgba(159,232,255,.4)\">❄ 冰之勇者</span>\n<span style=\"color:#5d9cc4;font-size:9px;letter-spacing:3px\">ICE FAIRY · STATUS</span></div>\n<div style=\"padding-top:7px\">$1</div></div></div>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "e55e5e55-5555-4555-9555-555555555506",
+  "scriptName": "② 冻结条 · 绝对冻结变色（第1步）",
+  "findRegex": "/·\\s*绝对冻结/g",
+  "replaceString": "<span style=\"color:#e6d9ff;font-weight:600;text-shadow:0 0 12px rgba(190,145,255,.95),0 0 26px rgba(150,100,255,.6)\">· 绝对冻结</span>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "f66f6f66-6666-4666-9666-666666666607",
+  "scriptName": "② 冻结条 · 冻结变色（第2步）",
+  "findRegex": "/·\\s*冻结(?!值)/g",
+  "replaceString": "<span style=\"color:#d6f6ff;font-weight:600;text-shadow:0 0 12px rgba(140,230,255,.95)\">· 冻结</span>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "a77a7a77-7777-4777-9777-777777777708",
+  "scriptName": "② 冻结条 · 主样式（第3步）",
+  "findRegex": "/<冻>\\s*([^|｜<\\n]+?)\\s*[|｜]\\s*(\\d+)\\s*(?:[|｜]\\s*([^<\\n]*?)\\s*)?<\\/冻>/gi",
+  "replaceString": "<style>\n@keyframes ifs-sweep{0%{transform:translateX(-120%)}55%{transform:translateX(340%)}100%{transform:translateX(340%)}}\n@keyframes ifs-pulse{0%,100%{box-shadow:0 0 9px rgba(159,232,255,.7),0 0 20px rgba(90,190,255,.32)}50%{box-shadow:0 0 15px rgba(234,250,255,.95),0 0 32px rgba(120,215,255,.55)}}\n@keyframes ifs-float{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-4px);opacity:.9}}\n.ifs-wrap{position:relative;overflow:hidden}\n.ifs-wrap::after{content:'';position:absolute;top:0;left:0;width:36%;height:100%;pointer-events:none;\n  background:linear-gradient(105deg,transparent,rgba(190,238,255,.09),rgba(234,250,255,.20),rgba(190,238,255,.09),transparent);\n  animation:ifs-sweep 5.5s ease-in-out infinite}\n.ifs-bar{position:relative;height:13px;border-radius:99px;overflow:hidden;\n  background:linear-gradient(180deg,#061726,#0e2c47);border:1px solid rgba(150,220,255,.3);box-shadow:inset 0 2px 6px rgba(0,0,0,.72)}\n.ifs-bar-fill{position:relative;display:flex;align-items:center;justify-content:flex-end;height:100%;border-radius:99px;\n  background:linear-gradient(90deg,#2b6ea8,#63c6f5,#9fe8ff,#eafaff);animation:ifs-pulse 2.8s ease-in-out infinite}\n.ifs-knob{width:6px;height:14px;border-radius:3px;background:#fff;margin-right:-1px;position:relative;z-index:2;box-shadow:0 0 10px #eafaff,0 0 22px rgba(159,232,255,.95)}\n.ifs-chip{display:inline-flex;align-items:center;gap:7px;margin:3px 6px 3px 0;padding:4px 11px;border-radius:8px;font-size:12px;letter-spacing:.3px}\n.ifs-owner{font-size:10px;padding:1px 6px;border-radius:5px;letter-spacing:.5px}\n.ifs-flake{position:absolute;color:rgba(190,238,255,.45);font-size:12px;pointer-events:none;animation:ifs-float 4s ease-in-out infinite}\n</style><span style=\"display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 9px;margin:2px 3px;border-radius:12px;\n background:linear-gradient(120deg,rgba(10,32,54,.95),rgba(6,20,34,.95));border:1px solid rgba(155,222,255,.42);font-family:'Noto Serif SC','Microsoft YaHei',serif;vertical-align:middle;box-shadow:0 3px 14px rgba(5,20,38,.66),inset 0 0 20px rgba(120,205,255,.15)\">\n<span style=\"color:#d6f6ff;font-size:12px;letter-spacing:.5px;text-shadow:0 0 10px rgba(159,232,255,.6)\">❄ $1</span>\n<span class=\"ifs-bar\" style=\"display:inline-block;width:84px;height:10px\"><span class=\"ifs-bar-fill\" style=\"width:$2%\"></span></span>\n<span style=\"color:#c6ecff;font-size:11px;letter-spacing:.5px\">$2%$3</span></span>",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ },
+ {
+  "id": "d9f2c3a1-7b45-4e88-9a10-8f3c2b7e5d41",
+  "scriptName": "③ 反八股（完整版·可选，默认关——你的卡自带那条时不需要这个）",
+  "findRegex": "/极其|的特质|特质|NPC|生理性|生理性的|沙哑|沙哑的|不容拒绝的|的薄茧|不容置疑的|不容置疑地|哭腔的|一丝|莫名(地)?|不由自主(地)?|仿佛|好似|心跳漏了一拍|难以言喻(的)?|说不出的|某种(意义|程度)上|空气(中)?(仿佛)?(凝固|凝滞)/gi",
+  "replaceString": "",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": true,
+  "markdownOnly": true,
+  "promptOnly": true,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": 30
+ },
+ {
+  "id": "f88f8f88-8888-4888-9888-888888888809",
+  "scriptName": "④ 对AI隐藏面板（可选·省 token；默认关）",
+  "findRegex": "/<冰勇状态>\\s*[\\s\\S]*?\\s*<\\/冰勇状态>/gi",
+  "replaceString": "",
+  "trimStrings": [],
+  "placement": [
+   2
+  ],
+  "disabled": true,
+  "markdownOnly": false,
+  "promptOnly": true,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+ }
+]
